@@ -1,0 +1,109 @@
+@import "variables";
+
+body {
+	overflow: hidden;
+
+	font-family: "Liberation Mono", "Lucida Console", "Monaco", "courrier new", monospace;
+	color: #111;
+}
+
+svg {
+	display: none;
+
+	&.active {
+		display: block;
+	}
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+.sidebar {
+	position: relative;
+	z-index: 2;
+	background-color: $dark-grey;
+	box-shadow: 4px 0px 6px #aaa;
+}
+.negative .sidebar{
+	box-shadow: 2px 0px 5px #222
+}
+
+.scene {
+	position: relative;
+	height: 100%;
+}
+
+.negative .central {
+	background-color: $black;
+}
+
+.stringinput-cell,
+.stringinput {
+	overflow: visible !important;
+}
+.stringinput {
+	input {
+	display: block;
+	height: 100%;
+	width: 100%;
+	padding-left: 1.4rem;
+	-moz-box-sizing: border-box;
+
+	color: lighten($dark-grey, 15%);
+	font-size: 1.4rem;
+	letter-spacing: .1rem;
+
+	background: lighten( $light-green , 15% );
+	border: 1px solid  $green;
+	border-bottom: 1rem solid lighten( $light-green , 10% );
+	border-radius: 0;
+		&:focus,
+		&:hover {
+			outline: none;
+			background: lighten( $light-green , 25% );
+		}
+	}
+	&:before,
+	&:after {
+		content: "";
+
+		position: absolute;
+		left: 40px; // not hard value?
+
+		display: block;
+		width: 0;
+		height: 0;
+
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+	}
+	&:before {
+		top: -10px;
+		border-bottom: 10px solid $light-green;
+	}
+	&:after {
+		top: -8px;
+		border-bottom: 10px solid lighten( $light-green , 15% );
+	}
+}
+
+/* To minimize blue selection when handle sliders */
+//::selection { background: transparent; }
+//::-moz-selection { background: transparent; }
+
+.btn {
+	cursor: pointer;
+	-webkit-transition: background-color 0.2s ease-in;
+	transition:         background-color 0.2s ease-in;
+	&:hover,
+	&:active,
+	&:focus {
+		outline:0px !important;
+		-webkit-appearance:none;
+	}
+}
